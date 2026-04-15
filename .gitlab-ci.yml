@@ -1,0 +1,16 @@
+---
+stages:
+  - build
+
+include:
+  - project: 'illikainen/cicd'
+    file: '/gitlab/go.yml'
+    ref: 'master'
+    inputs:
+      upload: true
+      packages: ./cmd/...
+      targets: >-
+        linux:amd64
+        linux:arm64
+        darwin:arm64
+        windows:amd64
